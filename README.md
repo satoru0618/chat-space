@@ -6,19 +6,18 @@
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
-- has_many :tweets
+- has_many :messages
 - has_many :groups_users
 - has_many  :groups,  through:  :groups_users
 
-## tweetsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :groups_tweets
-- has_many  :groups,  through:  :groups_tweets
+- has_many :groups
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -28,11 +27,8 @@
 ### Association
 - has_many :groups_users
 - has_many  :users,  through:  :groups_users
-- has_many :groups_tweets
-- has_many  :tweets,  through:  :groups_tweets
 
-## groups_usersテーブル
-
+## group_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -40,13 +36,3 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-## groups_tweetsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|tweet_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :group
-- belongs_to :tweet
