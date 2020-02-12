@@ -1,0 +1,35 @@
+.chat-main
+  .group-info
+    .group-info__left-box
+      %h2.group-info__left-box__current-group
+        aaa
+      %ul.group-info__left-box__menber-list
+        menber:aaa
+    = link_to "#" do
+      .group-info__edit-btn
+        Edit
+  .messages
+    .message
+      .message__upper-info
+        %p.message__upper-info__talker
+          aaaaa
+        %p.message__upper-info__date
+          2020/02/11(Tue) 12:16
+      %p.message__text
+        iiiiii
+    .message
+      .message__upper-info
+        %p.message__upper-info__talker
+          bbbbb
+        %p.message__upper-info__date
+          2020/02/11(Tue) 12:30
+      %p.message__text
+        rrrrr
+  .form
+    %form{class: "new_message", id: "new_message", enctype: "multipart/form-data",  method: "post"}
+      .input-box
+        %input{placeholder: "type a message", class: "input-box__text", type: "text", name: "message[content]", id: "message_content"}
+        %label{class: "input-box__image", for: "message_image"}
+          =icon('fa', 'image')
+          %input{type: "file", class: "input-box__image__file", name: "message[image]", id: "message_image"}
+      %input{type: "submit", class: "submit-btn", name: "commit", value: "Send", datadisablewith: "Send"}
